@@ -45,7 +45,7 @@ def login_page(request):
                     "form": form
               }
     print("User logged in")
-    #print(request.user.is_authenticated)
+    print(request.user.is_authenticated)
 
     if form.is_valid():
         print(form.cleaned_data)
@@ -53,12 +53,13 @@ def login_page(request):
         password = form.cleaned_data.get("password")
         user = authenticate(request, username=username, password=password)
         print(user)
-        #print(request.user.is_authenticated)
+        print(request.user.is_authenticated)
 
         if user is not None:
-            #print(request.user.is_authenticated)
+            print(request.user.is_authenticated)
             login(request, user)
             print("Login válido")
+            print(request.user.is_authenticated)
             # Redireciona para uma página de sucesso.
             return redirect("/")
         else:
